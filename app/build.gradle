@@ -1,0 +1,25 @@
+apply plugin: 'com.android.application'
+
+android {
+    ndkVersion "26.2.11394342"
+    compileSdk 34
+    namespace = "com.tencent.yolov8ncnn"
+
+    defaultConfig {
+        applicationId "com.tencent.yolov8ncnn"
+        archivesBaseName = "$applicationId"
+        minSdk 24
+        targetSdk 34
+    }
+
+    externalNativeBuild {
+        cmake {
+            version "3.30.5"
+            path file('src/main/jni/CMakeLists.txt')
+        }
+    }
+
+    dependencies {
+        implementation 'com.android.support:support-v4:24.0.0'
+    }
+}
